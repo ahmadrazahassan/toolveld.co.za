@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Skyline rail</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;font-family:"Inter Tight",sans-serif;color:#131315;background:#F1F1F1}
+.photo{position:absolute;inset:0;background:linear-gradient(#2e4d78,#7e9cc0 46%,#5f625a 47%,#2f322e)}
+.city{position:absolute;bottom:0;left:0;right:0;height:52%;background:repeating-linear-gradient(90deg,#2b2e2c 0 30px,#4a4f4b 30px 52px,#363a37 52px 96px)}
+header{position:absolute;top:20px;left:48px;right:48px;height:56px;display:flex;align-items:center;gap:36px;background:#fff;border-radius:14px;padding:0 20px}
+.mark{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px}
+.mark i{width:30px;height:30px;border-radius:9px;background:#FED400;display:grid;place-items:center;font-style:normal;font-size:16px}
+nav{display:flex;gap:26px;font-size:15px;font-weight:500}
+.right{margin-left:auto;font-size:15px;font-weight:600}
+.plate{position:absolute;left:48px;bottom:176px;width:640px;background:#131315;color:#fff;border-radius:16px;padding:34px 36px}
+.plate p{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#FED400}
+.plate h1{font-size:56px;line-height:1;letter-spacing:-.04em;font-weight:800;margin-top:14px}
+.plate span{display:block;font-size:17px;color:rgba(255,255,255,.7);margin-top:14px}
+.rail{position:absolute;left:48px;right:48px;bottom:48px;height:104px;background:#fff;border-radius:16px;display:flex;align-items:center;gap:10px;padding:0 20px}
+.rail .lab{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5C5C61;margin-right:8px}
+.job{height:60px;padding:0 20px;border-radius:12px;border:1px solid #D2D1CD;display:flex;flex-direction:column;justify-content:center}
+.job b{font-size:18px}.job small{font-size:12px;color:#5C5C61}
+.job.on{background:#131315;color:#fff;border-color:#131315}.job.on small{color:#bbb}
+.search{margin-left:auto;width:250px;height:60px;border-radius:12px;background:#F2F1EF;display:flex;align-items:center;padding:0 16px;color:#5C5C61;font-size:15px}
+.cap{position:absolute;right:56px;bottom:170px;color:#fff;font-size:13px;font-weight:600}
+</style></head><body>
+<div class="photo"><div class="city"></div></div>
+<header><div class="mark"><i>K</i>Khetha</div><nav><span>Software</span><span>Compare</span><span>Prices</span><span>Guides</span></nav><div class="right">List your software</div></header>
+<div class="plate"><p>Johannesburg · 37 products</p><h1>Business software, priced in rand.</h1><span>Every price shows the VAT. Every product checked against SARS and POPIA.</span></div>
+<div class="cap">Johannesburg skyline</div>
+<div class="rail"><span class="lab">I need</span>
+<div class="job on"><b>Accounting</b><small>from Free</small></div>
+<div class="job"><b>Payroll</b><small>from R97/mo</small></div>
+<div class="job"><b>HR</b><small>R28/employee</small></div>
+<div class="job"><b>CRM</b><small>from Free</small></div>
+<div class="job"><b>ERP</b><small>quoted</small></div>
+<div class="job"><b>Projects</b><small>from Free</small></div>
+<div class="search">Search by name</div></div>
+</body></html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Concierge</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;background:#F1F1F1;color:#131315;font-family:"Inter Tight",sans-serif}
+header{height:72px;display:flex;align-items:center;gap:40px;padding:0 48px;background:#fff;border-bottom:1px solid #E4E3E0}
+.mark{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px}
+.mark i{width:30px;height:30px;border-radius:9px;background:#FED400;display:grid;place-items:center;font-style:normal;font-size:16px}
+nav{display:flex;gap:28px;font-size:15px;font-weight:500}
+.right{margin-left:auto;font-size:15px;font-weight:600}
+.band{height:280px;background:linear-gradient(#3f5d86,#93acc9 50%,#6d6f66 51%,#3a3d38);position:relative}
+.band .city{position:absolute;bottom:0;left:0;right:0;height:48%;background:repeating-linear-gradient(90deg,#2b2e2c 0 26px,#4a4f4b 26px 44px,#363a37 44px 80px)}
+.panel{position:relative;margin:-90px 48px 0;background:#fff;border-radius:20px;padding:36px 40px;box-shadow:0 24px 48px -24px rgba(19,19,21,.3)}
+.top{display:flex;justify-content:space-between;align-items:center}
+.step{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5C5C61}
+.dots{display:flex;gap:6px}.dots i{width:40px;height:6px;border-radius:9px;background:#E4E3E0}.dots i:first-child{background:#131315}
+h1{font-size:58px;letter-spacing:-.04em;font-weight:800;margin-top:14px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.tile{border:1px solid #D2D1CD;border-radius:16px;padding:20px 22px;height:118px}
+.tile b{font-size:24px;letter-spacing:-.02em;display:block}
+.tile span{font-size:14px;color:#5C5C61;display:block;margin-top:8px}
+.tile.on{background:#131315;color:#fff;border-color:#131315}.tile.on span{color:#bbb}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:24px;font-size:15px}
+.foot .search{width:380px;height:46px;border:1px solid #D2D1CD;border-radius:12px;padding:0 16px;display:flex;align-items:center;color:#5C5C61}
+.next{height:48px;padding:0 22px;border-radius:12px;background:#FED400;font-weight:700;display:flex;align-items:center}
+</style></head><body>
+<header><div class="mark"><i>K</i>Khetha</div>
+<nav><span>Software</span><span>Compare</span><span>Prices</span><span>Guides</span></nav>
+<div class="right">List your software</div></header>
+<div class="band"><div class="city"></div></div>
+<section class="panel">
+<div class="top"><span class="step">Step 1 of 4 · Find your software</span><div class="dots"><i></i><i></i><i></i><i></i></div></div>
+<h1>What do you need help with?</h1>
+<div class="tiles">
+<div class="tile on"><b>Accounting</b><span>Invoices, bank feeds and the VAT201</span></div>
+<div class="tile"><b>Payroll</b><span>PAYE, UIF and the EMP201 by the 7th</span></div>
+<div class="tile"><b>HR</b><span>Leave and staff records in one place</span></div>
+<div class="tile"><b>CRM</b><span>Leads, deals and WhatsApp chats</span></div>
+<div class="tile"><b>ERP</b><span>Stock, branches and manufacturing</span></div>
+<div class="tile"><b>Projects</b><span>Tasks and deadlines for the team</span></div>
+</div>
+<div class="foot"><div class="search">Or search 37 products by name</div><div class="next">Next: how many people?</div></div>
+</section></body></html>

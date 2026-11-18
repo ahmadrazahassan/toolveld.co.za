@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Price board</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;background:#F1F1F1;color:#131315;font-family:"Inter Tight",sans-serif}
+header{height:72px;display:flex;align-items:center;gap:40px;padding:0 48px}
+.mark{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px}
+.mark i{width:30px;height:30px;border-radius:9px;background:#FED400;display:grid;place-items:center;font-style:normal;font-size:16px}
+nav{display:flex;gap:28px;font-size:15px;font-weight:500}
+.right{margin-left:auto;font-size:15px;font-weight:600}
+.head{display:flex;justify-content:space-between;align-items:flex-end;padding:18px 48px 22px}
+h1{font-size:64px;letter-spacing:-.045em;font-weight:800;line-height:.98}
+.meta{font-size:15px;color:#5C5C61;text-align:right}
+.board{margin:0 48px;background:#131315;border-radius:18px;padding:18px 22px;color:#fff}
+.tabs{display:flex;gap:8px;padding-bottom:16px;border-bottom:1px solid #2c2c30}
+.tab{height:38px;padding:0 16px;border-radius:9px;background:#222226;display:flex;align-items:center;font-size:14px;font-weight:600;color:#ccc}
+.tab.on{background:#FED400;color:#131315}
+.cols,.r{display:grid;grid-template-columns:260px 160px 240px 140px 150px 1fr;align-items:center}
+.cols{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A8A90;padding:14px 0 8px}
+.r{height:52px;border-top:1px solid #26262a;font-size:19px;font-weight:600}
+.cell{display:inline-flex;gap:3px}.cell i{font-style:normal;background:#222226;border-radius:4px;padding:2px 5px}
+.lamp{display:inline-flex;align-items:center;gap:8px;font-size:15px}.lamp b{width:10px;height:10px;border-radius:9px;background:#FED400}
+.dim{color:#8A8A90;font-size:15px}
+.gap{font-size:15px;color:#ccc}
+</style></head><body>
+<header><div class="mark"><i>K</i>Khetha</div><nav><span>Software</span><span>Compare</span><span>Prices</span><span>Guides</span></nav><div class="right">List your software</div></header>
+<div class="head"><h1>Today&#8217;s software prices,<br>posted in rand.</h1><div class="meta">37 products · 17 prices checked this week<br>Pick a job to filter the board</div></div>
+<div class="board">
+<div class="tabs"><span class="tab on">All jobs</span><span class="tab">Accounting</span><span class="tab">Payroll</span><span class="tab">HR</span><span class="tab">CRM</span><span class="tab">ERP</span><span class="tab">Projects</span></div>
+<div class="cols"><span>Product</span><span>Job</span><span>From, a month</span><span>VAT</span><span>Checked</span><span>Watch out for</span></div>
+<div class="r"><span>Sage Payroll</span><span class="dim">Payroll</span><span class="cell"><i>R</i><i>9</i><i>7</i></span><span class="dim">not stated</span><span class="lamp"><b></b>16 Nov</span><span class="gap">Bracket jump at 11 staff</span></div>
+<div class="r"><span>Sage Accounting</span><span class="dim">Accounting</span><span class="cell"><i>R</i><i>2</i><i>7</i><i>0</i></span><span class="dim">incl</span><span class="lamp"><b></b>16 Nov</span><span class="gap">R85 per extra user</span></div>
+<div class="r"><span>Xero</span><span class="dim">Accounting</span><span class="cell"><i>R</i><i>4</i><i>8</i><i>5</i></span><span class="dim">incl</span><span class="lamp"><b></b>16 Nov</span><span class="gap">No SA payroll, eFiling gap</span></div>
+<div class="r"><span>Zoho Books</span><span class="dim">Accounting</span><span class="cell"><i>F</i><i>R</i><i>E</i><i>E</i></span><span class="dim">excl</span><span class="lamp"><b></b>16 Nov</span><span class="gap">Under R1 million revenue</span></div>
+<div class="r"><span>Sage HR</span><span class="dim">HR</span><span class="cell"><i>R</i><i>2</i><i>8</i></span><span class="dim">not stated</span><span class="lamp"><b></b>17 Nov</span><span class="gap">Up to 250 employees</span></div>
+<div class="r"><span>SimplePay</span><span class="dim">Payroll</span><span class="cell"><i>R</i><i>6</i><i>5</i></span><span class="dim">excl</span><span class="dim">not yet</span><span class="gap">Plus a fee per employee</span></div>
+<div class="r"><span>Salesforce</span><span class="dim">CRM</span><span class="cell"><i>$</i><i>2</i><i>5</i></span><span class="dim">excl</span><span class="lamp"><b></b>16 Nov</span><span class="gap">Per user, dollar billed</span></div>
+<div class="r"><span>SYSPRO</span><span class="dim">ERP</span><span class="cell"><i>Q</i><i>U</i><i>O</i><i>T</i><i>E</i></span><span class="dim">n/a</span><span class="dim">quoted</span><span class="gap">Partner implementation</span></div>
+</div></body></html>

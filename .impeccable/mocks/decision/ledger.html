@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Job ledger</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;background:#F1F1F1;color:#131315;font-family:"Inter Tight",sans-serif}
+header{height:72px;display:flex;align-items:center;gap:40px;padding:0 48px;border-bottom:1px solid #D2D1CD}
+.mark{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;letter-spacing:-.02em}
+.mark i{width:30px;height:30px;border-radius:9px;background:#FED400;display:grid;place-items:center;font-style:normal;font-size:16px}
+nav{display:flex;gap:28px;font-size:15px;font-weight:500}
+.right{margin-left:auto;display:flex;gap:14px;align-items:center}
+.search{width:240px;height:40px;border:1px solid #D2D1CD;border-radius:10px;background:#fff;padding:0 14px;display:flex;align-items:center;font-size:14px;color:#5C5C61}
+.btn{height:40px;padding:0 18px;border-radius:10px;background:#131315;color:#fff;display:flex;align-items:center;font-weight:600;font-size:14px}
+main{display:grid;grid-template-columns:1fr 380px;gap:48px;padding:40px 48px 0}
+.kick{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5C5C61}
+h1{font-size:76px;line-height:.98;letter-spacing:-.045em;font-weight:800;margin-top:16px}
+.sub{font-size:19px;color:#5C5C61;margin-top:16px;max-width:620px}
+.ledger{margin-top:30px;border-top:2px solid #131315}
+.row{display:grid;grid-template-columns:76px 240px 1fr 170px 110px 30px;align-items:center;height:76px;border-bottom:1px solid #D2D1CD}
+.n{font-size:30px;font-weight:800;letter-spacing:-.04em}
+.job{font-size:28px;font-weight:700;letter-spacing:-.03em}
+.task{font-size:15px;color:#5C5C61}
+.price{font-size:20px;font-weight:700}
+.price small{display:block;font-size:12px;font-weight:600;color:#131315;margin-top:4px}
+.price small b{display:inline-block;background:#FED400;border-radius:999px;padding:2px 8px}
+.count{font-size:14px;color:#5C5C61}
+.arrow{width:30px;height:30px;border-radius:8px;background:#FED400;display:grid;place-items:center;font-weight:800}
+.photo{height:780px;border-radius:6px;background:linear-gradient(#3f5d86,#8aa5c4 45%,#6d6f66 46%,#3a3d38);position:relative;overflow:hidden}
+.photo span{position:absolute;left:16px;bottom:16px;color:#fff;font-size:13px;font-weight:600}
+.city{position:absolute;bottom:0;left:0;right:0;height:52%;background:repeating-linear-gradient(90deg,#2b2e2c 0 22px,#4a4f4b 22px 38px,#363a37 38px 70px)}
+</style></head><body>
+<header><div class="mark"><i>K</i>Khetha</div>
+<nav><span>Software</span><span>Categories</span><span>Compare</span><span>Prices</span><span>Guides</span></nav>
+<div class="right"><div class="search">Search 37 products</div><div class="btn">List your software</div></div></header>
+<main><section>
+<p class="kick">Business software for South African owners</p>
+<h1>What do you need<br>to get done?</h1>
+<p class="sub">37 products priced in rand with the VAT shown, checked against SARS, POPIA and the BCEA. Start with the job.</p>
+<div class="ledger">
+<div class="row"><span class="n">01</span><span class="job">Accounting</span><span class="task">Invoices, bank feeds and the VAT201</span><span class="price">from Free<small><b>checked 16 Nov</b></small></span><span class="count">8 products</span><span class="arrow">→</span></div>
+<div class="row"><span class="n">02</span><span class="job">Payroll</span><span class="task">PAYE, UIF and the EMP201 by the 7th</span><span class="price">from R97 /mo<small><b>checked 16 Nov</b></small></span><span class="count">4 products</span><span class="arrow">→</span></div>
+<div class="row"><span class="n">03</span><span class="job">HR</span><span class="task">Leave out of WhatsApp, records in one place</span><span class="price">R28 /employee<small><b>checked 17 Nov</b></small></span><span class="count">5 products</span><span class="arrow">→</span></div>
+<div class="row"><span class="n">04</span><span class="job">CRM</span><span class="task">Leads, deals and WhatsApp chats</span><span class="price">from Free<small><b>checked 16 Nov</b></small></span><span class="count">7 products</span><span class="arrow">→</span></div>
+<div class="row"><span class="n">05</span><span class="job">ERP</span><span class="task">Stock, branches and manufacturing</span><span class="price">Mostly quoted<small>&nbsp;</small></span><span class="count">8 products</span><span class="arrow">→</span></div>
+<div class="row"><span class="n">06</span><span class="job">Projects</span><span class="task">Tasks and deadlines for the team</span><span class="price">from Free<small><b>checked 16 Nov</b></small></span><span class="count">5 products</span><span class="arrow">→</span></div>
+</div></section>
+<aside class="photo"><div class="city"></div><span>Johannesburg</span></aside>
+</main></body></html>

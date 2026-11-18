@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <title>Table Mountain at first light</title>
+  <rect width="1600" height="1000" fill="#E4E3E0"/>
+  <circle cx="1180" cy="330" r="86" fill="#FED400"/>
+  <path d="M0 640 C120 600 220 590 330 610 C470 560 620 585 760 560 C900 540 1050 575 1200 555 C1350 540 1480 570 1600 560 L1600 760 L0 760 Z" fill="#D2D1CD"/>
+  <path transform="translate(0 70)" d="M0 650 L0 600 C70 585 130 548 190 480 C215 450 240 418 262 404 C285 420 300 446 322 470 C350 452 380 420 405 392 L420 382 L1030 376 C1060 392 1090 430 1125 470 C1160 500 1200 520 1240 512 C1270 470 1300 420 1330 392 C1345 380 1360 380 1374 392 C1400 425 1425 480 1460 520 C1510 560 1560 580 1600 590 L1600 720 Z" fill="#131315"/>
+  <rect y="720" width="1600" height="280" fill="#D2D1CD"/>
+  <g stroke="#C9C8C4" stroke-width="3" stroke-linecap="round">
+    <line x1="140" y1="780" x2="520" y2="780"/>
+    <line x1="700" y1="812" x2="1180" y2="812"/>
+    <line x1="260" y1="852" x2="600" y2="852"/>
+    <line x1="980" y1="880" x2="1460" y2="880"/>
+    <line x1="80" y1="920" x2="380" y2="920"/>
+    <line x1="1180" y1="760" x2="1500" y2="760"/>
+  </g>
+  <g fill="#FED400" opacity="0.9">
+    <rect x="1120" y="770" width="120" height="5" rx="2.5"/>
+    <rect x="1150" y="800" width="70" height="5" rx="2.5"/>
+    <rect x="1165" y="830" width="40" height="5" rx="2.5"/>
+  </g>
+</svg>

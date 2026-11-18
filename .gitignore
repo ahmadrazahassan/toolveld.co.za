@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+# next
+.next/
+out/
+build/
+next-env.d.ts
+*.tsbuildinfo
+# env
+.env*.local
+.env
+# design source images, not used by the site
+design-assets/
+# misc
+.DS_Store
+npm-debug.log*
+.vercel

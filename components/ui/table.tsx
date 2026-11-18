@@ -4,7 +4,9 @@ import { cn } from "@/lib/utils";
 /** White body, bone header row, hairline rows. Pass stickyFirst for wide tables. */
 export function Table({ className, stickyFirst = false, ...props }: ComponentProps<"table"> & { stickyFirst?: boolean }) {
   return (
-    <div className="overflow-x-auto rounded-[20px] border border-border bg-card">
+    // relative: keeps absolutely positioned children (sr-only labels) inside the scroll area,
+    // so they never widen the page on phones.
+    <div className="relative overflow-x-auto rounded-[20px] border border-border bg-card">
       <table
         {...props}
         className={cn(

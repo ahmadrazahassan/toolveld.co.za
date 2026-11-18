@@ -138,7 +138,9 @@ export default async function AlternativesPage({ params }: { params: Promise<{ s
               ))}
             </div>
           </div>
-          <div className="mt-5">
+          <div className="mt-5 flex flex-wrap items-center gap-2">
+            <VisitButton software={top} placement="product-alternatives" label={`Visit ${top.name}`} variant="yellow" size="default" />
+            <VisitButton software={s} placement="product-alternatives" label={`Visit ${s.name}`} size="default" />
             <CtaButton href={`/compare/${pairSlug(s.slug, top.slug)}`} variant="soft">
               Full comparison
             </CtaButton>

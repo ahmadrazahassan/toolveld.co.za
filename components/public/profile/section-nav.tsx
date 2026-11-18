@@ -10,7 +10,7 @@ export interface NavSection {
 }
 
 /** Scroll spy. A sticky left rail from 1024px and a collapsible sticky bar below that. */
-export function SectionNav({ sections }: { sections: NavSection[] }) {
+export function SectionNav({ sections, aside }: { sections: NavSection[]; aside?: React.ReactNode }) {
   const [active, setActive] = useState(sections[0]?.id ?? "");
   const [open, setOpen] = useState(false);
 
@@ -84,6 +84,7 @@ export function SectionNav({ sections }: { sections: NavSection[] }) {
             </li>
           ))}
         </ul>
+        {aside && <div className="mt-8">{aside}</div>}
       </nav>
     </>
   );

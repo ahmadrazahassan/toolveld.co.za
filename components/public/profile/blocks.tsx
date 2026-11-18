@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Check, History } from "lucide-react";
 import { PriceTag } from "@/components/public/price";
+import { VisitButton } from "@/components/public/affiliate-link";
 import { PriceCheckedStamp } from "@/components/ui/badge";
 import { Table, Td, Th } from "@/components/ui/table";
 import { integrationLogo } from "@/lib/assets";
@@ -85,6 +86,15 @@ export function PlanCards({ software }: { software: Software }) {
             ))}
           </ul>
           {p.note && <p className="mt-4 rounded-[12px] bg-bone px-3 py-2 text-[12.5px] leading-snug text-muted-foreground">{p.note}</p>}
+          <div className="mt-auto pt-5">
+            <VisitButton
+              software={software}
+              placement="product-plan"
+              label={planPriceParts(p, software.pricing_model).kind === "quoted" ? "Request a quote" : "Visit website"}
+              variant={p.popular ? "yellow" : "tint"}
+              full
+            />
+          </div>
         </li>
       ))}
     </ul>
@@ -102,6 +112,9 @@ export function PricingTable({ software }: { software: Software }) {
           <Th>Billed</Th>
           <Th>VAT</Th>
           <Th>Users</Th>
+          <Th>
+            <span className="sr-only">Vendor website</span>
+          </Th>
         </tr>
       </thead>
       <tbody>
@@ -117,6 +130,14 @@ export function PricingTable({ software }: { software: Software }) {
               <Td className="text-muted-foreground">{parts.kind === "price" ? BILLED_LABEL[p.period] : "n/a"}</Td>
               <Td className="text-muted-foreground">{parts.kind === "price" ? vatBasis(p.vat_inclusive, p.vat_unknown) : "n/a"}</Td>
               <Td className="text-muted-foreground">{p.users ?? "Not stated"}</Td>
+              <Td className="text-right">
+                <VisitButton
+                  software={software}
+                  placement="product-table"
+                  label={parts.kind === "quoted" ? "Get a quote" : "Visit website"}
+                  size="xs"
+                />
+              </Td>
             </tr>
           );
         })}

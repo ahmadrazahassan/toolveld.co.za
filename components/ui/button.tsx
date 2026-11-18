@@ -19,6 +19,7 @@ const pill = cva(
         soft: "gloss-light",
         onDark: "on-dark gloss-on-dark",
         tint: "gloss-tint",
+        yellow: "gloss-yellow",
       },
       size: {
         xs: "h-8 gap-2 rounded-[9px] pl-3.5 pr-2 text-[11px]",
@@ -42,6 +43,7 @@ const chip = cva(
         soft: "gloss-chip text-ink",
         onDark: "gloss-chip text-ink",
         tint: "bg-transparent text-ink",
+        yellow: "gloss-chip-ink text-yellow",
       },
       size: {
         xs: "size-4 rounded-[4px]",

@@ -478,6 +478,35 @@
       0 14px 26px -12px rgba(19, 19, 21, 0.3);
   }
 
+  /* Solid brand yellow, used for Visit website. Ink label, ink chip with a yellow arrow. */
+  .gloss-yellow {
+    --gloss-sheen: 0.5;
+    --gloss-shine: 0.75;
+    color: var(--ink);
+    background: linear-gradient(180deg, #ffe873 0%, #fed400 50%, #f3c900 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      inset 0 0 0 1px rgba(140, 100, 0, 0.22),
+      inset 0 -1px 0 rgba(140, 100, 0, 0.3),
+      0 1px 2px rgba(19, 19, 21, 0.14),
+      0 6px 14px -8px rgba(120, 90, 0, 0.6);
+  }
+  .gloss-yellow:hover {
+    filter: brightness(1.04);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 0 0 1px rgba(19, 19, 21, 0.28),
+      inset 0 -1px 0 rgba(140, 100, 0, 0.3),
+      0 2px 3px rgba(19, 19, 21, 0.12),
+      0 16px 28px -12px rgba(120, 90, 0, 0.6);
+  }
+  .gloss-chip-ink {
+    background: linear-gradient(180deg, #34343a 0%, #1d1d20 50%, #131315 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      0 1px 2px rgba(19, 19, 21, 0.3);
+  }
+
   /* The yellow arrow chip inside a CTA. */
   .gloss-chip {
     background: linear-gradient(180deg, #ffe873 0%, #fed400 52%, #f1c700 100%);

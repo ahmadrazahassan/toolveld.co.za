@@ -6,6 +6,8 @@ import { SectionHeader } from "@/components/public/section-heading";
 import { ReviewCard } from "@/components/public/review-card";
 import { SoftwareLogo } from "@/components/public/software-logo";
 import { CtaButton } from "@/components/ui/button";
+import { VisitButton, AffiliateDisclosureNote } from "@/components/public/affiliate-link";
+import { hasAffiliateLink } from "@/lib/affiliate";
 import { RatingDial } from "@/components/ui/misc";
 import { getReviews, getStarDistribution, type ReviewSort } from "@/lib/queries/reviews";
 import { getSoftwareBySlug } from "@/lib/queries/software";
@@ -101,9 +103,16 @@ export default async function ReviewsPage({ params, searchParams }: { params: Pr
                 No rating yet. It appears once {MIN_PUBLIC_REVIEWS} reviews are published.
               </p>
             )}
-            <div className="mt-5">
-              <CtaButton href={`/software/${s.slug}/reviews/new`}>Write a review</CtaButton>
+            <div className="mt-5 flex w-full flex-col gap-2">
+              <VisitButton software={s} placement="product-reviews-page" variant="yellow" size="default" full />
+              <CtaButton href={`/software/${s.slug}/reviews/new`} variant="soft" full>
+                Write a review
+              </CtaButton>
+              <CtaButton href={`/software/${s.slug}`} variant="soft" full>
+                Read our review
+              </CtaButton>
             </div>
+            <AffiliateDisclosureNote hasAffiliate={hasAffiliateLink(s.slug)} className="mt-4 text-left" />
           </div>
           {rated && (
             <ul className="space-y-2">

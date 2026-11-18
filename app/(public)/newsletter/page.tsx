@@ -33,7 +33,12 @@ export default async function NewsletterPage({ searchParams }: { searchParams: P
       )}
       {status === "invalid" && (
         <p role="alert" className="mx-auto mb-8 max-w-2xl rounded-[18px] bg-card p-4 text-[15px] text-destructive ring-1 ring-inset ring-border">
-          That confirmation link is not valid or has already been used.
+          That confirmation link is not valid or has expired. Sign up again below and we will send a new one.
+        </p>
+      )}
+      {status === "error" && (
+        <p role="alert" className="mx-auto mb-8 max-w-2xl rounded-[18px] bg-card p-4 text-[15px] text-destructive ring-1 ring-inset ring-border">
+          We could not confirm your subscription just now. Please click the link in your email again in a few minutes.
         </p>
       )}
       <div className="on-dark mx-auto max-w-2xl rounded-[40px] bg-panel p-7 text-on-panel md:p-12">

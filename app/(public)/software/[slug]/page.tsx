@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import { MessageSquarePlus } from "lucide-react";
 import { SoftwareLogo } from "@/components/public/software-logo";
 import { RatingOrEmpty } from "@/components/public/rating";
-import { VisitButton, AffiliateDisclosureNote } from "@/components/public/affiliate-link";
+import { VisitButton, VisitBanner, AffiliateDisclosureNote } from "@/components/public/affiliate-link";
+import { StickyVisitBar } from "@/components/public/profile/sticky-visit";
 import { ShortlistToggle } from "@/components/public/shortlist";
 import { ComplianceList, ComplianceMark } from "@/components/public/compliance-list";
 import { FaqAccordion } from "@/components/public/faq-accordion";
@@ -35,7 +36,7 @@ import { getCompanySizeCounts, getReviews, getStarDistribution } from "@/lib/que
 import { getAlternatives, getAllSoftware, getSoftwareBySlug, toSummary } from "@/lib/queries/software";
 import { buildSoftwareFaqs } from "@/lib/faq";
 import { hasAffiliateLink } from "@/lib/affiliate";
-import { COMPANY_SIZE_LABEL, formatSoftwarePrice } from "@/lib/format";
+import { COMPANY_SIZE_LABEL, formatSoftwarePrice, softwarePriceParts } from "@/lib/format";
 import { hasPublicRating, RATING_DIMENSIONS } from "@/lib/reviews-policy";
 import { COMPLIANCE_CHECKLIST } from "@/lib/site";
 import { JsonLd, breadcrumbSchema, buildMetadata, faqSchema, softwareSchema } from "@/lib/seo";
@@ -95,6 +96,34 @@ export default async function SoftwareProfilePage({ params }: { params: Promise<
 
   const focusLabels = COMPLIANCE_CHECKLIST.filter((c) => category.compliance_focus.includes(c.key));
 
+  // One short line used beside every Visit website button: price, then trial or free plan.
+  const priceKind = softwarePriceParts(s).kind;
+  const priceText =
+    priceKind === "free"
+      ? "Free plan available"
+      : priceKind === "quoted"
+        ? "Priced on quotation"
+        : priceKind === "unlisted"
+          ? "Prices on the vendor site"
+          : `From ${formatSoftwarePrice(s)}`;
+  const trialText = s.free_trial
+    ? `Free trial${s.free_trial_days ? ` for ${s.free_trial_days} days` : ""}`
+    : s.free_version && priceKind !== "free"
+      ? "Free version available"
+      : null;
+  const pitch = `${[priceText, trialText].filter(Boolean).join(". ")}.`;
+
+  const sidebarCta = (
+    <div className="rounded-[20px] bg-card p-4 ring-1 ring-inset ring-border">
+      <div className="flex items-center gap-3">
+        <SoftwareLogo name={s.name} logo={s.logo} brandColor={s.brand_color} size="sm" />
+        <p className="min-w-0 font-heading text-[15px] font-bold leading-tight">{s.name}</p>
+      </div>
+      <p className="mt-2.5 text-[13px] leading-snug text-muted-foreground">{pitch}</p>
+      <VisitButton software={s} placement="product-sidebar" variant="yellow" full className="mt-3" />
+    </div>
+  );
+
   return (
     <div className="container-site">
       <JsonLd
@@ -124,7 +153,7 @@ export default async function SoftwareProfilePage({ params }: { params: Promise<
       </nav>
 
       {/* Header */}
-      <header className="card-modern p-6 md:p-10">
+      <header id="profile-header" className="card-modern p-6 md:p-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
             <SoftwareLogo name={s.name} logo={s.logo} brandColor={s.brand_color} size="xl" decorative={false} />
@@ -147,11 +176,12 @@ export default async function SoftwareProfilePage({ params }: { params: Promise<
           </div>
           <div className="flex flex-col gap-3 lg:items-end">
             <div className="flex flex-wrap items-center gap-2">
-              <CtaButton href={`/software/${s.slug}/reviews/new`} size="lg">
+              <VisitButton software={s} placement="product-header" variant="yellow" size="lg" />
+              <CtaButton href={`/software/${s.slug}/reviews/new`} variant="soft" size="lg">
                 Write a review
               </CtaButton>
-              <VisitButton software={s} placement="product-header" label="Visit vendor" size="lg" />
             </div>
+            <p className="text-[14px] font-medium text-ink lg:text-right">{pitch}</p>
             <div className="flex flex-wrap items-center gap-3">
               <ShortlistToggle slug={s.slug} name={s.name} />
               <AffiliateDisclosureNote hasAffiliate={affiliate} className="max-w-xs" />
@@ -161,7 +191,7 @@ export default async function SoftwareProfilePage({ params }: { params: Promise<
       </header>
 
       <div className="mt-10 grid gap-10 lg:mt-14 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-14">
-        <SectionNav sections={sections} />
+        <SectionNav sections={sections} aside={sidebarCta} />
 
         <div className="min-w-0 space-y-14">
           <ProfileSection id="overview" title="Overview">
@@ -182,11 +212,32 @@ export default async function SoftwareProfilePage({ params }: { params: Promise<
                 <ComplianceList compliance={s.compliance} focus={category.compliance_focus} />
               </div>
             </div>
+            {!s.review && (
+              <VisitBanner
+                software={s}
+                placement="product-review"
+                title={`Ready to try ${s.name}?`}
+                body={pitch}
+                className="mt-10"
+              />
+            )}
           </ProfileSection>
 
           {s.review && (
             <ProfileSection id="review" title={`Our ${s.name} review`}>
               <EditorialReview review={s.review} name={s.name} />
+              <VisitBanner
+                software={s}
+                placement="product-review"
+                title={`Ready to try ${s.name}?`}
+                body={pitch}
+                secondary={
+                  <CtaButton href="#pricing" variant="soft">
+                    See pricing
+                  </CtaButton>
+                }
+                className="mt-10"
+              />
             </ProfileSection>
           )}
 
@@ -196,11 +247,20 @@ export default async function SoftwareProfilePage({ params }: { params: Promise<
               {s.pricing_plans.length ? (
                 <PlanCards software={s} />
               ) : (
-                <p className="max-w-2xl text-[16px] text-muted-foreground">
-                  {s.pricing_model === "quote"
-                    ? `${s.name} is sold on quotation, so there is no public list price.`
-                    : `We have not yet recorded plan prices for ${s.name}.`}
-                </p>
+                <div className="flex flex-col items-start gap-4">
+                  <p className="max-w-2xl text-[16px] text-muted-foreground">
+                    {s.pricing_model === "quote"
+                      ? `${s.name} is sold on quotation, so there is no public list price.`
+                      : `We have not yet recorded plan prices for ${s.name}.`}
+                  </p>
+                  <VisitButton
+                    software={s}
+                    placement="product-plan"
+                    label={s.pricing_model === "quote" ? "Request a quote" : "See prices on the vendor site"}
+                    variant="yellow"
+                    size="default"
+                  />
+                </div>
               )}
             </div>
             {s.pricing_note && (
@@ -223,10 +283,13 @@ export default async function SoftwareProfilePage({ params }: { params: Promise<
               <CostCalculator plans={s.pricing_plans} productName={s.name} />
               <PriceHistory software={s} />
             </div>
-            <AffiliateDisclosureNote hasAffiliate={affiliate} className="mt-6" />
-            <div className="mt-3">
-              <VisitButton software={s} placement="product-pricing" label="See prices on the vendor site" />
+            <div className="mt-8 flex flex-wrap items-center gap-2">
+              <VisitButton software={s} placement="product-pricing" label="See prices on the vendor site" variant="yellow" size="default" />
+              <CtaButton href={`/software/${s.slug}/alternatives`} variant="soft">
+                Cheaper alternatives
+              </CtaButton>
             </div>
+            <AffiliateDisclosureNote hasAffiliate={affiliate} className="mt-3" />
           </ProfileSection>
 
           <ProfileSection id="analytics" title="Cost analytics">
@@ -256,6 +319,10 @@ export default async function SoftwareProfilePage({ params }: { params: Promise<
             </ul>
             <h3 className="mb-4 mt-10 font-heading text-[19px] font-bold">Integrations</h3>
             <Integrations names={s.integrations} />
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <VisitButton software={s} placement="product-features" label="See all features" variant="yellow" size="default" />
+              {trialText && <span className="text-[14px] text-muted-foreground">{trialText}.</span>}
+            </div>
           </ProfileSection>
 
           {s.screenshots.length > 0 && (
@@ -329,7 +396,9 @@ export default async function SoftwareProfilePage({ params }: { params: Promise<
                   ))}
                 </div>
               </div>
-              <div className="mt-5">
+              <div className="mt-5 flex flex-wrap items-center gap-2">
+                <VisitButton software={s} placement="product-compare" label={`Visit ${s.name}`} variant="yellow" size="default" />
+                <VisitButton software={rival} placement="product-compare" label={`Visit ${rival.name}`} size="default" />
                 <CtaButton href={`/compare/${pairSlug(s.slug, rival.slug)}`} variant="soft">
                   Full comparison
                 </CtaButton>
@@ -391,9 +460,26 @@ export default async function SoftwareProfilePage({ params }: { params: Promise<
             <FaqAccordion faqs={faqs} />
           </ProfileSection>
 
-          <AffiliateDisclosureNote hasAffiliate={affiliate} />
+          <VisitBanner
+            software={s}
+            placement="product-footer"
+            tone="accent"
+            title={`Decided on ${s.name}?`}
+            body={pitch}
+            secondary={
+              alternatives.length > 0 ? (
+                <CtaButton href={`/software/${s.slug}/alternatives`} variant="soft">
+                  Compare alternatives
+                </CtaButton>
+              ) : null
+            }
+          />
         </div>
       </div>
+
+      <StickyVisitBar watchId="profile-header" title={s.name} meta={priceText}>
+        <VisitButton software={s} placement="product-sticky" variant="yellow" />
+      </StickyVisitBar>
     </div>
   );
 }

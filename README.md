@@ -12,8 +12,10 @@ npm install
 npm run dev        # http://localhost:3000
 ```
 
-The site runs fully without a database. Every query in `lib/queries` tries Supabase first and
-falls back to the bundled dataset in `lib/data`.
+The site runs without a database. Product data comes from the bundled dataset in `lib/data`.
+Email runs on Resend (`lib/email`): the contact form and new reviews are emailed to
+`CONTACT_INBOX`, and newsletter sign ups use a signed double opt in link and are saved in Resend
+Contacts. See `.env.example` for the variables.
 
 | Command | What it does |
 | --- | --- |

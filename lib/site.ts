@@ -102,8 +102,11 @@ export const MIN_PUBLIC_REVIEWS = 5;
 /** People shown on the About page. Real people only, with their consent. */
 export const TEAM: { name: string; role: string; photo: string; bio: string }[] = [];
 
-/** The editorial byline used on guides until named writers are added to TEAM. */
-export const EDITORIAL_DESK = `The ${SITE_NAME} desk`;
+/** Who signs our reviews and guides: the named founder, or the desk until one is set. */
+export const EDITORIAL_AUTHOR: { name: string; role: string; isPerson: boolean } = SITE_FOUNDER
+  ? { name: SITE_FOUNDER, role: "Founder and editor", isPerson: true }
+  : { name: `The ${SITE_NAME} desk`, role: "Editorial team", isPerson: false };
+export const EDITORIAL_DESK = EDITORIAL_AUTHOR.name;
 
 export const NAV_LINKS = [
   { href: "/software", label: "Software" },

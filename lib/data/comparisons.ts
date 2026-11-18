@@ -1,6 +1,7 @@
 import type { Comparison } from "@/lib/types";
 
 const DATE = "2026-11-16";
+const DATE_HR = "2026-11-18";
 
 /** Written verdicts. Pairs without one still get a page built from the data. */
 export const comparisons: Comparison[] = [
@@ -17,15 +18,15 @@ export const comparisons: Comparison[] = [
     status: "published",
   },
   {
-    slug: "simplepay-vs-sage-payroll",
-    a: "simplepay",
-    b: "sage-payroll",
-    winner: "simplepay",
+    slug: "bamboohr-vs-sage-hr",
+    a: "bamboohr",
+    b: "sage-hr",
+    winner: "sage-hr",
     verdict:
-      "SimplePay is the better payroll for most small and mid sized teams. EMP201, EMP501, IRP5 certificates, UIF, ETI and BCEA leave are all handled, staff get a self service login, and it posts journals into Xero, Sage Accounting and QuickBooks Online. The price per employee falls as you grow, so it stays reasonable well past fifty staff.",
+      "Sage HR wins for most South African teams. It is priced in rand per employee, from R28 a month for records and leave, so a company of twenty people pays about R560 a month before any extra modules. BambooHR charges a flat $250 a month before VAT for 25 employees or fewer, about R4 200 at our exchange rate, and the bill moves with the rand. BambooHR is the more polished system, but for leave, records and shifts Sage HR does the job at a fraction of the cost.",
     pick_other_if:
-      "Pick Sage Payroll if you already run Sage Accounting, employ fewer than ten people and want one vendor and one support line for books and payroll.",
-    updated_at: DATE,
+      "Pick BambooHR if you have international staff or investors who expect a polished HR system, you want strong onboarding and headcount reports from day one, and a dollar price suits your budget.",
+    updated_at: DATE_HR,
     status: "published",
   },
   {
@@ -49,6 +50,18 @@ export const comparisons: Comparison[] = [
       "Asana wins for teams running many projects at once. Portfolios, goals and the workload view give leaders a clear picture without opening every project, and the structure keeps large teams consistent. monday.com is more flexible and quicker to bend into non project work, but that freedom gets messy across a whole company.",
     pick_other_if:
       "Pick monday.com if you want one tool for projects, sales pipelines, content calendars and trackers, and your team likes building its own boards.",
+    updated_at: DATE,
+    status: "published",
+  },
+  {
+    slug: "simplepay-vs-sage-payroll",
+    a: "simplepay",
+    b: "sage-payroll",
+    winner: "simplepay",
+    verdict:
+      "SimplePay is the better payroll for most small and mid sized teams. EMP201, EMP501, IRP5 certificates, UIF, ETI and BCEA leave are all handled, staff get a self service login, and it posts journals into Xero, Sage Accounting and QuickBooks Online. The price per employee falls as you grow, so it stays reasonable well past fifty staff.",
+    pick_other_if:
+      "Pick Sage Payroll if you already run Sage Accounting, employ fewer than ten people and want one vendor and one support line for books and payroll.",
     updated_at: DATE,
     status: "published",
   },

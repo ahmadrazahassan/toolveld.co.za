@@ -42,9 +42,9 @@ const PATHS = [
     note: "Cloud payroll priced by bracket for small teams, desktop Payroll Professional for detailed payrolls, Sage 300 People for large employers.",
   },
   {
-    title: "Finance and customers",
-    steps: ["sage-hr", "sage-intacct", "sage-crm"],
-    note: "Sage HR for leave and records, Intacct when consolidation and reporting become the problem, Sage CRM when sales need to see ERP data.",
+    title: "Cloud finance",
+    steps: ["sage-accounting", "sage-intacct"],
+    note: "Stay in the cloud: Sage Accounting for one company, Sage Intacct when several companies need consolidated reporting. Sage HR and Sage CRM are not steps on any path; they sit beside whichever system you run.",
   },
 ];
 

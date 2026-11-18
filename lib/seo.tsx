@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
+  EDITORIAL_AUTHOR,
   OG_LOCALE,
   SITE_ADDRESS,
   SITE_DESCRIPTION,
@@ -173,7 +174,10 @@ export function articleSchema(a: Article) {
     description: a.excerpt,
     datePublished: a.published_at,
     dateModified: a.updated_at,
-    author: { "@type": a.author.photo ? "Person" : "Organization", name: a.author.name },
+    author:
+      a.author.photo || (EDITORIAL_AUTHOR.isPerson && a.author.name === EDITORIAL_AUTHOR.name)
+        ? { "@type": "Person", name: a.author.name, jobTitle: a.author.role, url: absoluteUrl("/about") }
+        : { "@type": "Organization", name: a.author.name },
     publisher: { "@type": "Organization", name: SITE_NAME, logo: { "@type": "ImageObject", url: absoluteUrl("/icon.svg") } },
     image: a.cover ? [absoluteUrl(a.cover), absoluteUrl(ogImageUrl(a.title, a.topic_label))] : absoluteUrl(ogImageUrl(a.title, a.topic_label)),
     mainEntityOfPage: absoluteUrl(`/blog/${a.slug}`),

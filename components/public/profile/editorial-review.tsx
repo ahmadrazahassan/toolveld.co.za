@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { Check, Minus, Quote } from "lucide-react";
 import { formatLongDate } from "@/lib/format";
-import { EDITORIAL_DESK, MIN_PUBLIC_REVIEWS } from "@/lib/site";
+import { EDITORIAL_AUTHOR, MIN_PUBLIC_REVIEWS } from "@/lib/site";
 import type { EditorialReview as Review } from "@/lib/types";
 
 /** Our editorial review. It never carries a score; ratings come only from readers. */
@@ -23,8 +24,12 @@ export function EditorialReview({ review, name }: { review: Review; name: string
           </div>
         </div>
         <p className="mt-6 text-[13px] text-on-panel-muted">
-          Reviewed {formatLongDate(review.reviewed_at)} by {EDITORIAL_DESK}. Our reviews carry no score: {name}&apos;s rating comes
-          only from reader reviews, once {MIN_PUBLIC_REVIEWS} are published.
+          Reviewed {formatLongDate(review.reviewed_at)} by{" "}
+          <Link href="/about" className="font-medium text-white underline underline-offset-2 hover:text-yellow">
+            {EDITORIAL_AUTHOR.name}
+          </Link>
+          {EDITORIAL_AUTHOR.isPerson ? `, ${EDITORIAL_AUTHOR.role.toLowerCase()}` : ""}. Our reviews carry no score: {name}&apos;s
+          rating comes only from reader reviews, once {MIN_PUBLIC_REVIEWS} are published.
         </p>
       </div>
 

@@ -1,4 +1,4 @@
-import { EDITORIAL_DESK } from "@/lib/site";
+import { EDITORIAL_AUTHOR } from "@/lib/site";
 import type { Article } from "@/lib/types";
 import { buyingGuides } from "@/lib/data/guides/buying";
 import { payrollGuides } from "@/lib/data/guides/payroll";
@@ -8,7 +8,7 @@ import { moreBuyingGuides } from "@/lib/data/guides/buying-more";
 import { moreTaxGuides } from "@/lib/data/guides/tax-more";
 import { morePayrollGuides } from "@/lib/data/guides/payroll-more";
 
-const desk = { name: EDITORIAL_DESK, role: "Editorial team", photo: null };
+const desk = { name: EDITORIAL_AUTHOR.name, role: EDITORIAL_AUTHOR.role, photo: null };
 
 const firstGuides: Article[] = [
   {

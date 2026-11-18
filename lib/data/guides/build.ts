@@ -1,7 +1,7 @@
-import { EDITORIAL_DESK } from "@/lib/site";
+import { EDITORIAL_AUTHOR } from "@/lib/site";
 import type { Article, ArticleBlock, FAQ } from "@/lib/types";
 
-export const desk = { name: EDITORIAL_DESK, role: "Editorial team", photo: null };
+export const desk = { name: EDITORIAL_AUTHOR.name, role: EDITORIAL_AUTHOR.role, photo: null };
 
 /** Date the 2026 guide series was researched and published. */
 export const SERIES_DATE = "2026-11-17";

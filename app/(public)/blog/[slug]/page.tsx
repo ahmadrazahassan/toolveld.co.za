@@ -58,7 +58,14 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-[14px] text-muted-foreground">
           <span className="inline-flex items-center gap-2 font-medium text-ink">
             <SiteMark showWordmark={false} />
-            {a.author.name}
+            <span>
+              <Link href="/about" className="hover:underline hover:underline-offset-2">
+                {a.author.name}
+              </Link>
+              {a.author.role && a.author.role !== "Editorial team" && (
+                <span className="font-normal text-muted-foreground">, {a.author.role.toLowerCase()}</span>
+              )}
+            </span>
           </span>
           <span aria-hidden="true">·</span>
           <span>

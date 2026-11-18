@@ -192,10 +192,6 @@ export function Footer() {
               <Flag code={MARKET_FLAG} size={11} />
               Made in {SITE_ADDRESS.locality}
             </p>
-            <p className="max-w-[420px] md:ml-auto">
-              {SITE_NAME} is independent and is not affiliated with or endorsed by any vendor we list. Product names and logos
-              belong to their owners.
-            </p>
             <p>
               &copy; {year} {SITE_NAME}. All rights reserved. {SITE_DOMAIN}
             </p>

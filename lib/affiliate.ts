@@ -3,8 +3,8 @@
  * No affiliate URL may appear anywhere else in the codebase. `VisitButton` is the only
  * component that renders one.
  *
- * We have no affiliate agreements yet, so the list is empty and every outbound link is a
- * plain `nofollow` link to the vendor's own site. When a programme is signed, add it here.
+ * Products without a programme get a plain `nofollow` link to the vendor's own site.
+ * When a programme is signed, add it here and list it in the affiliate disclosure.
  */
 
 export type Placement =
@@ -43,7 +43,24 @@ export interface AffiliateProgramme {
   products: AffiliateProduct[];
 }
 
-export const AFFILIATE_PROGRAMMES: AffiliateProgramme[] = [];
+export const AFFILIATE_PROGRAMMES: AffiliateProgramme[] = [
+  {
+    // Xero partner programme, run on PartnerStack. Joined 18 November 2026.
+    // utm_content carries the placement, so Xero's reports show which spot sent the click.
+    id: "xero",
+    network: "PartnerStack",
+    subIdParam: "utm_content",
+    products: [
+      {
+        slug: "xero",
+        url: "https://xero5440.partnerlinks.io/1ckut6a0r1ph?utm_medium=toolveld.co.za&utm_source=toolveld.co.za&utm_campaign=toolveld.co.za",
+      },
+    ],
+  },
+];
+
+/** Programmes we belong to, as readers see them on the disclosure page. */
+export const ACTIVE_PROGRAMMES = [{ vendor: "Xero", network: "PartnerStack", joined: "18 November 2026" }];
 
 export const AFFILIATE_REL = "sponsored noopener";
 export const PLAIN_REL = "nofollow noopener";

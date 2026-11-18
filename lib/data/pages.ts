@@ -9,6 +9,7 @@ import {
   SITE_FOUNDER,
   SITE_NAME,
 } from "@/lib/site";
+import { ACTIVE_PROGRAMMES } from "@/lib/affiliate";
 import type { Page } from "@/lib/types";
 
 const UPDATED = "2026-11-16";
@@ -59,7 +60,7 @@ export const pages: Page[] = [
       { type: "table", head: ["Provider", "What they do for us", "Where the data is held"], rows: [["Vercel", "Hosts the website and counts page views without cookies", "United States and Vercel's global network"], ["Resend", "Sends our emails, including the newsletter, and keeps the newsletter list", "United States"], ["HostAfrica", "Delivers email sent to our own addresses", "South Africa"]] },
       { type: "p", text: "Vercel and Resend hold information outside South Africa. Section 72 of POPIA allows this where the recipient is bound by law, binding corporate rules or an agreement that protects the information at least as well as POPIA does. Both providers process information for us under data processing terms of that kind, and neither may use it for their own purposes." },
       { type: "h2", id: "affiliate", text: "Affiliate links" },
-      { type: "p", text: "When we take part in an affiliate programme, a link marked Ad may take you through the programme's network, such as Impact, before you reach the vendor. The network and the vendor record that you came from us. That information is theirs, and their privacy policy applies to it. We only receive totals, never your name or email." },
+      { type: "p", text: "We are an affiliate partner of Xero, through PartnerStack. A link marked Ad takes you through the programme's network before you reach the vendor. The network and the vendor record that you came from us. That information is theirs, and their privacy policy applies to it. We only receive totals, never your name or email." },
       { type: "h2", id: "your-rights", text: "Your rights" },
       { type: "p", text: `You may ask what information we hold about you, ask us to correct or delete it, object to its use and withdraw your consent at any time. Contact ${officer}. We reply within 30 days. If you are not satisfied with our answer, you may complain to the Information Regulator at www.inforegulator.org.za.` },
       { type: "h2", id: "security", text: "Security and retention" },
@@ -76,7 +77,7 @@ export const pages: Page[] = [
     body: [
       { type: "p", text: `${SITE_NAME} sets no advertising cookies and no tracking cookies of its own. The table lists everything the site stores or counts.` },
       { type: "table", head: ["Item", "What it does", "Type", "How long"], rows: [["Shortlist", "Remembers up to four products you shortlisted for comparison. It stays in your browser and is never sent to us", "Functional, browser storage", "Until you clear it"], ["Page view counting", "Vercel Web Analytics counts visits to each page without cookies and without identifying you", "Statistics, nothing stored on your device", "Not stored"], ["Affiliate cookies", "When you click a link marked Ad, the programme's network or the vendor may set its own cookie to record that you came from us", "Third party", "Set by them. Their cookie policy applies"]] },
-      { type: "p", text: "At the moment no links on the site are affiliate links, so no third party cookies are set when you click through to a vendor." },
+      { type: "p", text: "Today our Xero links are affiliate links run through PartnerStack, so clicking one may set a PartnerStack or Xero cookie. Links to every other vendor are plain links and set no cookie for us." },
       { type: "h2", id: "control", text: "Your choices" },
       { type: "p", text: "You can clear cookies and site storage in your browser settings at any time, and block third party cookies there too. The site works fully either way. Clearing storage empties your shortlist." },
     ],
@@ -87,7 +88,7 @@ export const pages: Page[] = [
     description: `How ${SITE_NAME} makes money and how we keep that separate from rankings.`,
     updated_at: UPDATED_PARTNERS,
     body: [
-      { type: "p", text: `${SITE_NAME} is free to read. We plan to earn money in two ways: affiliate commission when a reader buys software through some of our links, and enquiries from vendors who want a listing. Readers should know exactly where that happens.` },
+      { type: "p", text: `${SITE_NAME} is free to read. We earn money in two ways: affiliate commission when a reader buys software through some of our links, and enquiries from vendors who want a listing. Readers should know exactly where that happens.` },
       { type: "h2", id: "how-links-work", text: "How affiliate links work" },
       { type: "ul", items: ["An affiliate link carries a small Ad label beside it.", "A short disclosure sits next to every group of commercial buttons.", "The price you pay is the same whether or not you use our link.", "Links to vendors without a programme are plain links and earn us nothing."] },
       { type: "h2", id: "rankings", text: "Rankings come first" },
@@ -97,7 +98,8 @@ export const pages: Page[] = [
       { type: "h2", id: "what-we-never-do", text: "What a programme never changes" },
       { type: "ul", items: ["Which products we list. Every relevant product is listed, whether or not it pays us.", "What our editorial review says, including the gaps and the cons.", "Our picks in head to head comparisons.", "The prices we show. They come from the vendor's own pricing page."] },
       { type: "h2", id: "current", text: "Current programmes" },
-      { type: "p", text: "We have no affiliate agreements at the moment. Every outbound link on the site is a plain link. When we join a programme, its products will carry the Ad label and this page will list the vendor and the date we joined." },
+      { type: "table", head: ["Vendor", "Network", "Joined"], rows: ACTIVE_PROGRAMMES.map((p) => [p.vendor, p.network, p.joined]) },
+      { type: "p", text: "Links to these vendors carry the Ad label, and we may earn a commission when you sign up through them. Xero's ratings, ranks and our picks in comparisons were written before we joined, and joining changed none of them. Links to every other vendor are plain links and earn us nothing. When we join another programme, it is added to this table with the date." },
       { type: "p", text: "Vendors who want to talk about a programme can read our [partner page](/partners)." },
     ],
   },

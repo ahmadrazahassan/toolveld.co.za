@@ -30,7 +30,7 @@ Owners compare on a laptop at the office or on a phone between jobs. Decisions t
 - Directory with filters, product profiles with editorial review, pricing, cost analytics and FAQs, written comparisons, shortlist of up to four, a four question finder, guides, price index (/prices), Sage hub (/sage), newsletter, admin.
 - Prices: 17 of 37 products checked on vendor sources (16 and 17 Nov 2026); the rest are labelled "Price not yet checked". VAT basis is shown or stated as not given.
 - Never invent reviews, ratings, testimonials, customer logos or prices. Ratings appear only after 5 published reader reviews; there are none yet.
-- Commercial links must carry an Ad label and disclosure; there are no affiliate programmes yet.
+- Commercial links must carry an Ad label and disclosure; Xero is an affiliate partner through PartnerStack since 18 Nov 2026; every other vendor link is plain.
 - Light only. Copy uses no dashes or hyphen punctuation and avoids stock marketing words.
 
 ## Brand Commitments

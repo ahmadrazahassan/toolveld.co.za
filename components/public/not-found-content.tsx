@@ -6,7 +6,7 @@ const LINKS = [
   { href: "/software", label: "All software" },
   { href: "/categories", label: "Categories" },
   { href: "/compare", label: "Compare" },
-  { href: "/blog", label: "Guides" },
+  { href: "/blog", label: "Blog" },
   { href: "/finder", label: "Which one fits?" },
 ];
 

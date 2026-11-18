@@ -3,7 +3,6 @@ import Link from "next/link";
 import { BookOpen } from "lucide-react";
 import { SectionHeader } from "@/components/public/section-heading";
 import { ArticleCover } from "@/components/public/article-cover";
-import { formatDate } from "@/lib/format";
 import { getArticles } from "@/lib/queries/content";
 import { JsonLd, breadcrumbSchema, buildMetadata } from "@/lib/seo";
 import { cn } from "@/lib/utils";
@@ -50,7 +49,7 @@ export default async function BlogIndex({ searchParams }: { searchParams: Promis
             </h2>
             <p className="mt-3 text-[16px] leading-relaxed text-muted-foreground">{featured.excerpt}</p>
             <p className="mt-auto pt-6 text-[13.5px] text-muted-foreground">
-              {featured.author.name} · {formatDate(featured.published_at)} · {featured.reading_minutes} min read
+              {featured.author.name} ·{featured.reading_minutes} min read
             </p>
           </div>
         </Link>
@@ -81,7 +80,7 @@ export default async function BlogIndex({ searchParams }: { searchParams: Promis
                 </h3>
                 <p className="mt-2 line-clamp-3 text-[14.5px] leading-relaxed text-muted-foreground">{a.excerpt}</p>
                 <p className="mt-auto pt-4 text-[13px] text-muted-foreground">
-                  {a.author.name} · {formatDate(a.published_at)} · {a.reading_minutes} min read
+                  {a.author.name} ·{a.reading_minutes} min read
                 </p>
               </div>
             </article>

@@ -3,14 +3,14 @@ import Link from "next/link";
 import { SiteMark } from "@/components/public/site-mark";
 import { Flag } from "@/components/ui/misc";
 import { getHeroImage } from "@/lib/server-assets";
-import { CONTACT_EMAIL, CONTACT_PHONE, MARKET_FLAG, SITE_ADDRESS, SITE_DOMAIN, SITE_NAME, SOCIAL_LINKS } from "@/lib/site";
+import { BLOG_LINKS, CONTACT_EMAIL, CONTACT_PHONE, MARKET_FLAG, SITE_ADDRESS, SITE_DOMAIN, SITE_NAME, SOCIAL_LINKS } from "@/lib/site";
 
 /** The big links, one per main section of the site. */
 const PRIMARY = [
   { href: "/software", label: "Software" },
   { href: "/categories", label: "Categories" },
   { href: "/compare", label: "Compare" },
-  { href: "/blog", label: "Guides" },
+  { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
 ];
 
@@ -76,7 +76,7 @@ export function Footer() {
 
       {/* 2. Main grid */}
       <div className="container-site">
-        <div className="grid gap-12 border-x border-dashed border-white/10 px-5 py-14 sm:px-8 md:py-20 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-10 lg:px-12">
+        <div className="grid gap-12 border-x border-dashed border-white/10 px-5 py-14 sm:px-8 md:py-20 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_minmax(0,1.6fr)] xl:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)_minmax(0,2.1fr)] lg:gap-10 lg:px-12">
           <div>
             <Link href="/" className="inline-flex">
               <SiteMark tone="light" />
@@ -111,7 +111,20 @@ export function Footer() {
             </ul>
           </nav>
 
-          <div className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+            <nav aria-label="Blog">
+              <p className={heading}>Blog</p>
+              <ul className="mt-6 space-y-3">
+                {BLOG_LINKS.map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className={smallLink}>
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
             <nav aria-label="Explore">
               <p className={heading}>Explore</p>
               <ul className="mt-6 space-y-3">

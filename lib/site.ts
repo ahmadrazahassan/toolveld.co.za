@@ -112,6 +112,16 @@ export const NAV_LINKS = [
   { href: "/software", label: "Software" },
   { href: "/categories", label: "Categories" },
   { href: "/compare", label: "Compare" },
-  { href: "/blog", label: "Guides" },
+  { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
+] as const;
+
+/** Blog topics linked from the footer. Each one opens the blog filtered to that topic. */
+export const BLOG_LINKS = [
+  { href: "/blog", label: "All posts" },
+  { href: "/blog?topic=compliance", label: "Tax and SARS" },
+  { href: "/blog?topic=payroll", label: "Payroll" },
+  { href: "/blog?topic=hr", label: "HR and staff" },
+  { href: "/blog?topic=accounting", label: "Accounting" },
+  { href: "/blog?topic=buying", label: "Buying guides" },
 ] as const;

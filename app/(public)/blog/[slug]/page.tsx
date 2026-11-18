@@ -12,7 +12,6 @@ import { getCategories } from "@/lib/queries/categories";
 import { getArticle, getArticles } from "@/lib/queries/content";
 import { getSoftwareMap, toSummary } from "@/lib/queries/software";
 import { hasAffiliateLink } from "@/lib/affiliate";
-import { formatLongDate } from "@/lib/format";
 import { JsonLd, articleSchema, breadcrumbSchema, buildMetadata, faqSchema } from "@/lib/seo";
 import type { Software } from "@/lib/types";
 
@@ -67,18 +66,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               )}
             </span>
           </span>
-          <span aria-hidden="true">·</span>
-          <span>
-            Published <time dateTime={a.published_at}>{formatLongDate(a.published_at)}</time>
-          </span>
-          {a.updated_at !== a.published_at && (
-            <>
-              <span aria-hidden="true">·</span>
-              <span>
-                Updated <time dateTime={a.updated_at}>{formatLongDate(a.updated_at)}</time>
-              </span>
-            </>
-          )}
           <span aria-hidden="true">·</span>
           <span>{a.reading_minutes} min read</span>
         </div>
